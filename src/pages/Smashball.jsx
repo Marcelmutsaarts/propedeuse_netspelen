@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { smashballInfo } from '../data/volleyData'
 import useStore from '../store/useStore'
 import YouTubeEmbed from '../components/YouTubeEmbed'
+import AddVideoModal from '../components/AddVideoModal'
 import { 
   Star, Users, Ruler, Target, Zap, BookOpen, 
-  Play, AlertCircle, TrendingUp, StickyNote, Save
+  Play, AlertCircle, TrendingUp, StickyNote, Save, Plus, Trash2
 } from 'lucide-react'
 
 function Smashball() {
@@ -13,12 +14,19 @@ function Smashball() {
     addFavorite, 
     removeFavorite, 
     getNote, 
-    saveNote 
+    saveNote,
+    getCustomVideos,
+    addCustomVideo,
+    removeCustomVideo,
+    userRole
   } = useStore()
   
   const [activeTab, setActiveTab] = useState('overview')
   const [note, setNote] = useState(getNote('smashball') || '')
   const [showNoteSaved, setShowNoteSaved] = useState(false)
+  const [showAddVideoModal, setShowAddVideoModal] = useState(false)
+  
+  const customVideos = getCustomVideos('smashball')
 
   const toggleFavorite = () => {
     if (isFavorite('smashball')) {
@@ -32,6 +40,10 @@ function Smashball() {
     saveNote('smashball', note)
     setShowNoteSaved(true)
     setTimeout(() => setShowNoteSaved(false), 2000)
+  }
+  
+  const handleAddVideo = (videoData) => {
+    addCustomVideo('smashball', videoData)
   }
 
   const tabs = [
@@ -188,16 +200,65 @@ function Smashball() {
 
           {activeTab === 'videos' && (
             <div className="space-y-4">
-              {smashballInfo.videos.length > 0 ? (
-                smashballInfo.videos.map((video, index) => (
-                  <div key={index}>
-                    <YouTubeEmbed url={video.url} title={video.title} />
+              {userRole === 'teacher' && (
+                <button
+                  onClick={() => setShowAddVideoModal(true)}
+                  className="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-red-300 hover:text-red-600 transition-colors flex items-center justify-center gap-2"
+                >
+                  <Plus size={20} />
+                  Video toevoegen
+                </button>
+              )}
+              
+              {smashballInfo.videos.length > 0 && (
+                <div>
+                  <h4 className="font-semibold mb-3 text-gray-700">Officiële video's</h4>
+                  <div className="space-y-3">
+                    {smashballInfo.videos.map((video, index) => (
+                      <div key={index}>
+                        <YouTubeEmbed url={video.url} title={video.title} />
+                      </div>
+                    ))}
                   </div>
-                ))
-              ) : (
+                </div>
+              )}
+              
+              {customVideos.length > 0 && (
+                <div>
+                  <h4 className="font-semibold mb-3 text-gray-700 flex items-center gap-2">
+                    Toegevoegde video's
+                    <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">
+                      {customVideos.length}
+                    </span>
+                  </h4>
+                  <div className="space-y-3">
+                    {customVideos.map((video) => (
+                      <div key={video.id} className="relative">
+                        <YouTubeEmbed url={video.url} title={video.title} />
+                        {userRole === 'teacher' && (
+                          <button
+                            onClick={() => removeCustomVideo('smashball', video.id)}
+                            className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 transition-colors"
+                            title="Video verwijderen"
+                          >
+                            <Trash2 size={16} />
+                          </button>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {smashballInfo.videos.length === 0 && customVideos.length === 0 && (
                 <div className="bg-gray-50 rounded-lg p-8 text-center">
                   <Play size={48} className="text-gray-400 mx-auto mb-3" />
                   <p className="text-gray-600">Nog geen video's beschikbaar</p>
+                  {userRole === 'teacher' && (
+                    <p className="text-sm text-gray-500 mt-2">
+                      Klik op "Video toevoegen" om YouTube video's toe te voegen
+                    </p>
+                  )}
                 </div>
               )}
             </div>
@@ -232,6 +293,12 @@ function Smashball() {
           )}
         </div>
       </div>
+      
+      <AddVideoModal
+        isOpen={showAddVideoModal}
+        onClose={() => setShowAddVideoModal(false)}
+        onAdd={handleAddVideo}
+      />
     </div>
   )
 }
