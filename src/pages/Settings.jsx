@@ -18,8 +18,7 @@ function Settings() {
         favorites: store.favorites,
         notes: store.notes,
         quizScores: store.quizScores,
-        assignments: store.assignments,
-        userRole: store.userRole
+        videoUrls: store.videoUrls
       }
     }
 
@@ -76,20 +75,10 @@ function Settings() {
           })
         }
 
-        if (imported.data.assignments) {
-          imported.data.assignments.forEach(assignment => {
-            const exists = store.assignments.find(a => 
-              a.title === assignment.title && 
-              a.createdAt === assignment.createdAt
-            )
-            if (!exists) {
-              store.addAssignment(assignment)
-            }
+        if (imported.data.videoUrls) {
+          Object.entries(imported.data.videoUrls).forEach(([key, value]) => {
+            store.setVideoUrl(key, value)
           })
-        }
-
-        if (imported.data.userRole) {
-          store.setUserRole(imported.data.userRole)
         }
 
         setImportStatus({ 
@@ -105,134 +94,120 @@ function Settings() {
     }
 
     reader.readAsText(file)
-    event.target.value = null // Reset file input
+    event.target.value = ''
+    setTimeout(() => setImportStatus(null), 3000)
   }
 
   const clearAllData = () => {
     store.clearAllData()
     setShowConfirmClear(false)
-    setImportStatus({ 
-      type: 'success', 
-      message: 'Alle data is gewist' 
-    })
+    setImportStatus({ type: 'success', message: 'Alle data is gewist!' })
     setTimeout(() => setImportStatus(null), 3000)
   }
 
   return (
     <div className="space-y-6">
       <div className="bg-white rounded-lg shadow-md p-6">
-        <div className="flex items-center gap-3 mb-4">
-          <SettingsIcon size={24} className="text-gray-700" />
-          <h1 className="text-2xl font-bold">Instellingen</h1>
-        </div>
-        <p className="text-gray-600">
-          Beheer je app-data en persoonlijke instellingen
-        </p>
+        <h1 className="text-2xl font-bold mb-4 flex items-center gap-3">
+          <SettingsIcon size={28} />
+          Instellingen
+        </h1>
       </div>
 
+      {/* Status Messages */}
+      {importStatus && (
+        <div className={`rounded-lg p-4 flex items-center gap-3 ${
+          importStatus.type === 'success' 
+            ? 'bg-green-50 text-green-800 border border-green-200' 
+            : 'bg-red-50 text-red-800 border border-red-200'
+        }`}>
+          {importStatus.type === 'success' ? (
+            <CheckCircle size={20} />
+          ) : (
+            <AlertCircle size={20} />
+          )}
+          <span>{importStatus.message}</span>
+        </div>
+      )}
+
+      {/* Data Export/Import */}
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-lg font-semibold mb-4">Data Beheer</h2>
-        
         <div className="space-y-4">
-          <div className="border rounded-lg p-4">
-            <div className="flex items-start gap-3 mb-3">
-              <Download className="text-blue-600 mt-1" size={20} />
-              <div className="flex-1">
-                <h3 className="font-medium mb-1">Exporteer Data</h3>
-                <p className="text-sm text-gray-600 mb-3">
-                  Download al je favorieten, notities, quiz scores en opdrachten als JSON bestand
-                </p>
-                <button
-                  onClick={exportData}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
-                >
-                  <FileJson size={18} />
-                  Exporteer naar bestand
-                </button>
-              </div>
-            </div>
+          <div>
+            <h3 className="font-medium mb-2">Exporteer Data</h3>
+            <p className="text-sm text-gray-600 mb-3">
+              Download al je favorieten, notities, quiz scores en video URLs als backup.
+            </p>
+            <button
+              onClick={exportData}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
+            >
+              <Download size={18} />
+              Exporteer Data
+            </button>
           </div>
 
-          <div className="border rounded-lg p-4">
-            <div className="flex items-start gap-3 mb-3">
-              <Upload className="text-green-600 mt-1" size={20} />
-              <div className="flex-1">
-                <h3 className="font-medium mb-1">Importeer Data</h3>
-                <p className="text-sm text-gray-600 mb-3">
-                  Laad een eerder geëxporteerd JSON bestand om je data te herstellen
-                </p>
-                <label className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors inline-flex items-center gap-2 cursor-pointer">
-                  <FileJson size={18} />
-                  Selecteer bestand
-                  <input
-                    type="file"
-                    accept=".json"
-                    onChange={importData}
-                    className="hidden"
-                  />
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div className="border border-red-200 rounded-lg p-4">
-            <div className="flex items-start gap-3 mb-3">
-              <Trash2 className="text-red-600 mt-1" size={20} />
-              <div className="flex-1">
-                <h3 className="font-medium mb-1 text-red-900">Wis Alle Data</h3>
-                <p className="text-sm text-gray-600 mb-3">
-                  Verwijder permanent alle opgeslagen data uit de app
-                </p>
-                {!showConfirmClear ? (
-                  <button
-                    onClick={() => setShowConfirmClear(true)}
-                    className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
-                  >
-                    Wis alle data
-                  </button>
-                ) : (
-                  <div className="flex gap-2">
-                    <button
-                      onClick={clearAllData}
-                      className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
-                    >
-                      Bevestig wissen
-                    </button>
-                    <button
-                      onClick={() => setShowConfirmClear(false)}
-                      className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors"
-                    >
-                      Annuleren
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
+          <div>
+            <h3 className="font-medium mb-2">Importeer Data</h3>
+            <p className="text-sm text-gray-600 mb-3">
+              Upload een eerder geëxporteerd backup bestand.
+            </p>
+            <label className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 cursor-pointer transition-colors w-fit">
+              <Upload size={18} />
+              Importeer Data
+              <input
+                type="file"
+                accept=".json"
+                onChange={importData}
+                className="hidden"
+              />
+            </label>
           </div>
         </div>
+      </div>
 
-        {importStatus && (
-          <div className={`mt-4 p-4 rounded-lg flex items-start gap-2 ${
-            importStatus.type === 'success' 
-              ? 'bg-green-50 text-green-800 border border-green-200' 
-              : 'bg-red-50 text-red-800 border border-red-200'
-          }`}>
-            {importStatus.type === 'success' ? (
-              <CheckCircle size={20} className="mt-0.5" />
-            ) : (
-              <AlertCircle size={20} className="mt-0.5" />
-            )}
-            <span>{importStatus.message}</span>
+      {/* Clear Data */}
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-lg font-semibold mb-4">Data Wissen</h2>
+        <p className="text-sm text-gray-600 mb-4">
+          Verwijder alle opgeslagen data. Dit kan niet ongedaan gemaakt worden.
+        </p>
+        
+        {!showConfirmClear ? (
+          <button
+            onClick={() => setShowConfirmClear(true)}
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
+          >
+            <Trash2 size={18} />
+            Alle Data Wissen
+          </button>
+        ) : (
+          <div className="flex gap-3">
+            <button
+              onClick={clearAllData}
+              className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
+            >
+              <CheckCircle size={18} />
+              Ja, Wis Alles
+            </button>
+            <button
+              onClick={() => setShowConfirmClear(false)}
+              className="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded-lg transition-colors"
+            >
+              Annuleren
+            </button>
           </div>
         )}
       </div>
 
+      {/* App Information */}
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-lg font-semibold mb-4">App Informatie</h2>
         <div className="space-y-2 text-sm text-gray-600">
           <p>Versie: 1.0.0</p>
           <p>Ontwikkeld voor: ALO studenten en docenten</p>
-          <p>Methodieken: Volley Stars & Smashball</p>
+          <p>Methodieken: Volley Stars</p>
           <p>Offline beschikbaar: ✓</p>
         </div>
       </div>

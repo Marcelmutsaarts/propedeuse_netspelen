@@ -9,7 +9,6 @@ function Layout() {
   const navigation = [
     { name: 'Home', href: '/', icon: Home },
     { name: 'Volley Stars', href: '/volley-stars', icon: Volleyball },
-    { name: 'Smashball', href: '/smashball', icon: Trophy },
     { name: 'Quiz', href: '/quiz', icon: ClipboardList },
     { name: 'Opdrachten', href: '/opdrachten', icon: ClipboardList },
     { name: 'Favorieten', href: '/favorieten', icon: Star },

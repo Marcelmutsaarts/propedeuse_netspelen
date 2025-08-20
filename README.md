@@ -1,11 +1,10 @@
 # Volleybal Educatie App
 
-Een educatieve Progressive Web App voor ALO-studenten en docenten om de Volley Stars en Smashball methodieken te leren.
+Een educatieve Progressive Web App voor ALO-studenten en docenten om de Volley Stars methodiek te leren.
 
 ## Features
 
 - 📚 **Volley Stars methodiek**: Alle 5 levels met spelregels, technieken en didactische tips
-- 🔥 **Smashball/SMASH!**: Complete informatie voor 13-18 jaar methodiek
 - 🎯 **Interactieve Quizzen**: Test je kennis per level met score tracking
 - ⭐ **Favorieten & Notities**: Persoonlijke aantekeningen en snelle toegang
 - 📝 **Docenten Opdrachten**: Docenten kunnen opdrachten plaatsen, studenten kunnen ze bekijken

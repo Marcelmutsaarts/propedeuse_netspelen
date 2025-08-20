@@ -1,23 +1,12 @@
 import { Link } from 'react-router-dom'
 import useStore from '../store/useStore'
-import { volleyStarsLevels, smashballInfo } from '../data/volleyData'
+import { volleyStarsLevels } from '../data/volleyData'
 import { Star, ArrowRight, Trash2, StickyNote } from 'lucide-react'
 
 function Favorites() {
   const { favorites, removeFavorite, getNote } = useStore()
 
   const getFavoriteItem = (id) => {
-    if (id === 'smashball') {
-      return {
-        id: 'smashball',
-        name: smashballInfo.name,
-        icon: smashballInfo.icon,
-        description: smashballInfo.mainGoal,
-        link: '/smashball',
-        type: 'methodiek'
-      }
-    }
-    
     const level = volleyStarsLevels.find(l => l.id === id)
     if (level) {
       return {

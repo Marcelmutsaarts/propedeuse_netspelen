@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { volleyStarsLevels } from '../data/volleyData'
-import { ArrowRight, Users, Ruler, Target } from 'lucide-react'
+import { ArrowRight, Users, Ruler, Target, Clock, BookOpen, Dumbbell } from 'lucide-react'
 
 function VolleyStars() {
   return (
@@ -29,9 +29,12 @@ function VolleyStars() {
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-3xl">{level.icon}</span>
-                  <h2 className="text-xl font-semibold group-hover:text-orange-600 transition-colors">
-                    {level.name}
-                  </h2>
+                  <div>
+                    <h2 className="text-xl font-semibold group-hover:text-orange-600 transition-colors">
+                      {level.name}
+                    </h2>
+                    <p className="text-sm text-gray-500">{level.ageGroup}</p>
+                  </div>
                 </div>
                 
                 <div className="grid md:grid-cols-3 gap-4 mb-4">
@@ -49,12 +52,25 @@ function VolleyStars() {
                   </div>
                 </div>
 
-                <p className="text-gray-700 mb-2">
-                  <strong>Hoofddoel:</strong> {level.mainGoal}
-                </p>
-                <p className="text-gray-600">
-                  <strong>Kerntechniek:</strong> {level.keyTechnique}
-                </p>
+                <div className="space-y-2 mb-4">
+                  <p className="text-gray-700">
+                    <strong>Hoofddoel:</strong> {level.mainGoal}
+                  </p>
+                  <p className="text-gray-600">
+                    <strong>Kerntechniek:</strong> {level.keyTechnique}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-4 text-xs text-gray-500">
+                  <div className="flex items-center gap-1">
+                    <BookOpen size={12} />
+                    <span>{level.commonMistakes.length} fouten & tips</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Dumbbell size={12} />
+                    <span>{level.exercises.length} oefeningen</span>
+                  </div>
+                </div>
               </div>
               
               <ArrowRight className="text-gray-400 group-hover:text-orange-600 transition-colors mt-2" />

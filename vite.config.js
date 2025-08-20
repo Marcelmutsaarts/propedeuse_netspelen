@@ -11,7 +11,7 @@ export default defineConfig({
       manifest: {
         name: 'Volleybal Educatie App',
         short_name: 'VolleyApp',
-        description: 'Educatieve app voor Volley Stars en Smashball methodieken',
+        description: 'Educatieve app voor de Volley Stars methodiek',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',

@@ -11,13 +11,6 @@ function Home() {
       color: 'bg-blue-500'
     },
     {
-      icon: Target,
-      title: 'Smashball',
-      description: 'Dynamisch volleybal voor 13-18 jaar met smash centraal',
-      link: '/smashball',
-      color: 'bg-red-500'
-    },
-    {
       icon: BookOpen,
       title: 'Quiz',
       description: 'Test je kennis over spelregels en technieken',
@@ -40,7 +33,7 @@ function Home() {
           Welkom bij VolleyApp
         </h1>
         <p className="text-lg md:text-xl mb-6">
-          Jouw digitale assistent voor Volley Stars en Smashball methodieken
+          Jouw digitale assistent voor de Volley Stars methodiek
         </p>
         <div className="flex flex-wrap gap-4">
           <div className="bg-white/20 backdrop-blur rounded-lg p-3">

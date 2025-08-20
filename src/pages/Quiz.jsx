@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { quizQuestions, volleyStarsLevels, smashballInfo } from '../data/volleyData'
+import { quizQuestions, volleyStarsLevels } from '../data/volleyData'
 import useStore from '../store/useStore'
 import { CheckCircle, XCircle, Award, RefreshCw, ArrowRight } from 'lucide-react'
 
@@ -13,20 +13,12 @@ function Quiz() {
   
   const { saveQuizScore, getQuizScore } = useStore()
 
-  const availableQuizzes = [
-    ...volleyStarsLevels.map(level => ({
-      id: level.id,
-      name: level.name,
-      icon: level.icon,
-      questions: quizQuestions[level.id] || []
-    })),
-    {
-      id: 'smashball',
-      name: smashballInfo.name,
-      icon: smashballInfo.icon,
-      questions: quizQuestions.smashball || []
-    }
-  ]
+  const availableQuizzes = volleyStarsLevels.map(level => ({
+    id: level.id,
+    name: level.name,
+    icon: level.icon,
+    questions: quizQuestions[level.id] || []
+  }))
 
   const startQuiz = (levelId) => {
     setSelectedLevel(levelId)

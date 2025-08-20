@@ -7,9 +7,7 @@ const useStore = create(
       favorites: [],
       notes: {},
       quizScores: {},
-      assignments: [],
-      userRole: 'student',
-      customVideos: {},
+      videoUrls: {},
       
       addFavorite: (itemId) => set((state) => ({
         favorites: [...new Set([...state.favorites, itemId])]
@@ -40,45 +38,20 @@ const useStore = create(
       
       getQuizScore: (quizId) => get().quizScores[quizId],
       
-      addAssignment: (assignment) => set((state) => ({
-        assignments: [
-          ...state.assignments,
-          {
-            ...assignment,
-            id: Date.now().toString(),
-            createdAt: new Date().toISOString(),
-            status: 'active'
-          }
-        ]
-      })),
-      
-      getActiveAssignments: () => 
-        get().assignments.filter(a => a.status === 'active'),
-      
-      setUserRole: (role) => set({ userRole: role }),
-      
-      addCustomVideo: (levelId, video) => set((state) => ({
-        customVideos: {
-          ...state.customVideos,
-          [levelId]: [...(state.customVideos[levelId] || []), { ...video, id: Date.now().toString() }]
+      setVideoUrl: (levelId, url) => set((state) => ({
+        videoUrls: {
+          ...state.videoUrls,
+          [levelId]: url
         }
       })),
       
-      removeCustomVideo: (levelId, videoId) => set((state) => ({
-        customVideos: {
-          ...state.customVideos,
-          [levelId]: (state.customVideos[levelId] || []).filter(v => v.id !== videoId)
-        }
-      })),
-      
-      getCustomVideos: (levelId) => get().customVideos[levelId] || [],
+      getVideoUrl: (levelId) => get().videoUrls[levelId] || '',
       
       clearAllData: () => set({
         favorites: [],
         notes: {},
         quizScores: {},
-        assignments: [],
-        customVideos: {}
+        videoUrls: {}
       })
     }),
     {
@@ -87,9 +60,7 @@ const useStore = create(
         favorites: state.favorites,
         notes: state.notes,
         quizScores: state.quizScores,
-        assignments: state.assignments,
-        userRole: state.userRole,
-        customVideos: state.customVideos
+        videoUrls: state.videoUrls
       })
     }
   )
