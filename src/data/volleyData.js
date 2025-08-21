@@ -1,29 +1,41 @@
 export const volleyStarsLevels = [
   {
     id: 'level1-catch',
-    name: 'Level 1: Catch',
+    name: 'Level 1: Catch Volley',
     icon: '🤲',
     teamSize: '2 tegen 2',
-    netHeight: 'Laag (1.80m)',
-    courtSize: '6x4.5 meter',
-    ageGroup: '6+ jaar',
-    mainGoal: 'Vangen en gooien leren',
-    keyTechnique: 'Vang-gooi beweging',
+    netHeight: '1.70m',
+    fieldDepth: '4.50m',
+    fieldWidth: '5.20m (binnenste lijnen badmintonveld)',
+    ballWeight: '170 gram',
+    ageGroup: '6-8 jaar (richtlijn)',
+    mainGoal: 'Gooien en vangen',
+    keyTechnique: 'Onderhandse opgooi over het net',
+    entryRequirement: 'De spelers kunnen een bal die over het net komt vangen en zijn in staat om die over een 1.70 meter hoog net terug te gooien',
     rules: [
-      'Bal mag gevangen worden',
-      'Maximaal 3 seconden vasthouden',
-      'Geen lopen met de bal',
-      'Service door onderhands te gooien',
-      'Maximaal 3 balcontacten per team'
+      'Iedere rally start met een onderhandse opgooi over het net vanuit het midden van de eigen helft',
+      'Alle ballen moeten met twee handen worden teruggegooid',
+      'Lopen met de bal is niet toegestaan',
+      'De bal wordt met twee handen gevangen en direct (binnen 3 seconden) teruggegooid naar de overkant',
+      'Bovenhands gooien mag, maar alleen met een stootworp van voor het hoofd (geen voetbalinworp)',
+      'Overgooien naar een medespeler is toegestaan als de afstand naar het net te groot is',
+      'Na een punt start het spel opnieuw vanaf de kant waar de bal is',
+      'Een netfout (het aanraken van het net in de aanval) betekent dat het gescoorde punt niet telt'
+    ],
+    scoring: [
+      'De bal op de grond in het veld van de tegenstander valt',
+      'De bal via de tegenstander uit gaat',
+      'De tegenstander meer dan twee worpen nodig heeft om de bal over het net te gooien'
     ],
     didacticTips: [
-      'Focus op oog-hand coördinatie',
-      'Stimuleer samenspel',
-      'Korte rallys om succesbeleving te creëren',
-      'Varieer met verschillende ballen'
+      'Focus op gooien en vangen',
+      'Balbaan inschatten',
+      'Gunstige positie innemen',
+      'Reactiesnelheid ontwikkelen',
+      'Bewust variëren'
     ],
     methodicalBuild: {
-      description: 'Catch Volley is de start voor kinderen vanaf circa zes jaar. Begin met simpele rol- en vangspellen om balgevoel en reactie te ontwikkelen.',
+      description: 'Het doel is het ontwikkelen van basale vaardigheden en adaptief vermogen, zoals goede verplaatsing, actiebereidheid en omgaan met variatie.',
       steps: [
         'Begin met simpele rol- en vangspellen om balgevoel te ontwikkelen',
         'Oefen onderhands overgooien over een lage lijn of elastiek',
@@ -31,7 +43,7 @@ export const volleyStarsLevels = [
         'Stimuleer bewegen naar de bal en op tijd onder de bal komen',
         'Leer elkaar aanroepen ("ik heb \'m!")'
       ],
-      focus: 'Balgevoel, reactievermogen en eerste samenspel'
+      focus: 'Werpen en vangen: Balbaan inschatten, gunstige positie innemen, reactiesnelheid, bewust variëren'
     },
     commonMistakes: [
       {
@@ -100,29 +112,41 @@ export const volleyStarsLevels = [
   },
   {
     id: 'level2-bounce',
-    name: 'Level 2: Bounce',
+    name: 'Level 2: Bounce Volley',
     icon: '⚡',
     teamSize: '2 tegen 2',
-    netHeight: 'Middel (2.00m)',
-    courtSize: '6x4.5 meter',
-    ageGroup: '7+ jaar',
-    mainGoal: 'Bounce-set techniek leren',
-    keyTechnique: 'Bounce-set (stuit-vang-gooi)',
+    netHeight: '1.70m',
+    fieldDepth: '4.50m',
+    fieldWidth: '5.20m (binnenste lijnen badmintonveld)',
+    ballWeight: '170 gram',
+    ageGroup: '7-9 jaar (richtlijn)',
+    mainGoal: 'Samenwerken in aanval, meer variatie in verdediging',
+    keyTechnique: 'Bounce-set (tweehandige stuit vlak voor medespeler)',
+    entryRequirement: 'Spelers beheersen level 1 effectief en stabiel en hebben daarnaast geoefend met het geven van een bounce-set die ze over een net van 1.70m hoog kunnen spelen',
     rules: [
-      'Eerste balcontact: bal laten stuiteren',
-      'Na stuit mag bal gevangen worden',
-      'Maximaal 2 seconden vasthouden',
-      'Service: onderhands gooien of slaan',
-      'Maximaal 3 balcontacten per team'
+      'Iedere rally start met een bounce-set en aanval vanuit het midden van de eigen helft',
+      'Vangen: De speler die de bal vangt, mag rennen tot vlak voor de medespeler om een bounce-set voor de voeten te geven',
+      'De bounce-set: De bounce-set is een tweehandige stuit vlak voor de medespeler (deze mag niet over het net gespeeld worden)',
+      'Aanval: De aanvaller mag op een zelf gekozen volleybalachtige wijze de bal over het net spelen: bovenhands, tip, smash, onderarms',
+      'Alle ballen moeten na het vangen (binnen 3 seconden) met een bounce-set naar de medespeler gespeeld worden',
+      'Nadat de bal is gevangen, mogen de spelers niet samen naar het net rennen, alleen de speler die de bal heeft gevangen mag dat',
+      'Na de bounce-set mag de aanvaller wel naar het net bewegen',
+      'Blokken van de eerste bal die over het net komt mag niet',
+      'Een netfout (het aanraken van het net in de aanval) betekent dat het gescoorde punt niet telt'
+    ],
+    scoring: [
+      'De bal in het veld van de tegenstander op de grond valt (met uitzondering van de bounce-set)',
+      'De bal via de tegenstander uit gaat',
+      'De tegenstander meer dan twee keer samenspeelt'
     ],
     didacticTips: [
-      'Leer timing van de stuit',
-      'Focus op positie onder de bal',
-      'Gebruik zachte ondergrond voor stuit',
-      'Progressief minder vangen toestaan'
+      'Samenwerken in aanval ontwikkelen',
+      'Meer variatie in verdediging',
+      'Afstemmen op medespeler met de set',
+      'Gevarieerd aanvallen met bovenhandse dominantie'
     ],
     methodicalBuild: {
-      description: 'In Bounce Volley leren leerlingen de overstap van gooien naar bovenhands spelen. De stuit geeft extra tijd om de bal te controleren.',
+      description: 'Iedere bal die over het net komt wordt gevangen en vervolgens met een bounce-set (stuitbal tegen de grond) opgespeeld voor de medespeler. Na de bounce-set speelt de aanvaller de bal over het net.',
       steps: [
         'Start met individuele bounce-sets: stuit - vang - speel omhoog',
         'Uitbreiden naar tweetallen: één vangt en geeft bounce-set',
@@ -130,7 +154,7 @@ export const volleyStarsLevels = [
         'Samenwerking ontwikkelen door ritme te vinden',
         'Geleidelijk meer accent op spelen dan vangen'
       ],
-      focus: 'Overgang van gooien naar spelen, timing en samenwerking'
+      focus: 'Samenwerken in aanval, meer variatie in verdediging afstemmen op medespeler met de set, gevarieerd aanvallen met bovenhandse dominantie'
     },
     commonMistakes: [
       {
@@ -198,29 +222,38 @@ export const volleyStarsLevels = [
   },
   {
     id: 'level3-pass',
-    name: 'Level 3: Pass',
+    name: 'Level 3: Pass Volley',
     icon: '🏐',
     teamSize: '2 tegen 2',
-    netHeight: 'Middel-hoog (2.10m)',
-    courtSize: '6x4.5 meter',
-    ageGroup: '8+ jaar',
-    mainGoal: 'Onderarms en bovenhandse pass',
-    keyTechnique: 'Pass technieken zonder vangen',
+    netHeight: '2.00m',
+    fieldDepth: '4.50m',
+    fieldWidth: '5.20m (binnenste lijnen badmintonveld)',
+    ballWeight: '170 gram',
+    ageGroup: '8-10 jaar (richtlijn)',
+    mainGoal: 'Pass de bal naar een medespeler die de bal vangt of vang je eigen pass (selfpass)',
+    keyTechnique: 'Onderarmse pass en selfpass',
+    entryRequirement: 'Spelers beheersen level 2 effectief en zijn daarnaast in staat om een bal die over het net komt onderarms te spelen als selfpass of pass naar een medespeler. Kinderen hebben geoefend met voor de medespeler opgooien',
     rules: [
-      'Geen vangen meer toegestaan',
-      'Onderarms en bovenhands passen',
-      'Service: onderhands slaan',
-      'Maximaal 3 balcontacten per team',
-      'Selfpass is toegestaan'
+      'Iedere rally start met het opgooien van de bal voor de medespeler die de bal over het net speelt vanuit het midden van de eigen helft',
+      'Pass: De bal die over het net komt moet direct gespeeld worden. Na een onderarmse pass wordt de bal door de medespeler gevangen óf zelf gevangen (selfpass). Wordt de bal bovenhands gespeeld dan moet de medespeler de bal vangen',
+      'Vang/opgooi: De balbezitter rent direct na het vangen met de bal naar het net en gooit de bal binnen 3 sec. op voor de medespeler',
+      'Aanval: De aanvaller mag op een zelf gekozen volleybalachtige wijze de bal over het net spelen: bovenhands, tip, smash, onderarms',
+      'Tijdens de rally moet er drie keer gespeeld worden',
+      'Blokken van de eerste bal die over het net komt mag niet'
+    ],
+    scoring: [
+      'De bal in het veld van de tegenstander op de grond valt',
+      'De bal via de tegenstander uit gaat',
+      'De tegenstander de bal niet in drie keer terug speelt'
     ],
     didacticTips: [
-      'Start met ballonnen voor langzamer tempo',
-      'Focus op techniek boven resultaat',
-      'Veel herhaling voor automatisering',
-      'Positieve feedback bij goede pogingen'
+      'Volleybal-echt passen ontwikkelen',
+      'Afstemmen set-up (direct opwerpen)',
+      'Keuze speelwijze aanval afstemmen op kwaliteit van de set',
+      'Selfpass als redmiddel'
     ],
     methodicalBuild: {
-      description: 'Pass Volley verhoogt het net en introduceert de forearm-pass en selfpass. Vangen is niet meer toegestaan.',
+      description: 'Pass de bal naar een medespeler die de bal vangt of vang je eigen pass (selfpass). De gevangen bal wordt opgegooid en door de aanvaller over het net gespeeld.',
       steps: [
         'Leren van de platform-houding: voeten op schouderbreedte, knieën licht gebogen',
         'Armen gestrekt samen houden voor onderarmse pass',
@@ -228,7 +261,7 @@ export const volleyStarsLevels = [
         'In tweetallen: pass – vang – gooi',
         'Opbouw naar 2-tegen-2 waarbij passer zichzelf toespeelt'
       ],
-      focus: 'Juiste pass-techniek, geen vangen meer, selfpass introductie'
+      focus: 'Volleybal-echt passen, afstemmen set-up (direct opwerpen), keuze speelwijze aanval afstemmen op kwaliteit van de set'
     },
     commonMistakes: [
       {
@@ -304,29 +337,44 @@ export const volleyStarsLevels = [
   },
   {
     id: 'level4-smash',
-    name: 'Level 4: Smash',
+    name: 'Level 4: Smash Volley',
     icon: '💥',
     teamSize: '3 tegen 3',
-    netHeight: 'Hoog (2.20m)',
-    courtSize: '9x4.5 meter',
-    ageGroup: '10+ jaar',
-    mainGoal: 'Aanval (smash) introduceren',
-    keyTechnique: 'Smash en setup',
+    netHeight: '2.00m',
+    fieldDepth: '4.50m',
+    fieldWidth: '5.20m (binnenste lijnen badmintonveld)',
+    ballWeight: '210-230 gram',
+    ageGroup: '9-11 jaar (richtlijn)',
+    mainGoal: 'Pass de bal die over het net komt. De tweede bal wordt gevangen en bovenhands gespeeld vanuit een zelf opgooi (set)',
+    keyTechnique: 'Pass-set-aanval, bovenhandse set uit eigen opgooi',
+    entryRequirement: 'Spelers beheersen level 3 effectief waarbij er steeds minder de selfpass nodig is voor het redden van een bal',
     rules: [
-      'Vangen alleen bij eerste balcontact toegestaan',
-      'Aanval (smash) is toegestaan',
-      'Service: bovenhands of onderhands',
-      'Maximaal 3 balcontacten per team',
-      'Rotatie na punt'
+      'Iedere rally start met een onderhandse service door de speler op positie rechtsachter ergens in de achterste helft van het speelveld',
+      'Pass: De bal spelen (bovenhands of onderarms) naar een medespeler. De selfpass is niet meer toegestaan',
+      'Set: De bal vangen, naar voren rennen en binnen 3 seconden bovenhands opspelen vanuit een zelf opgegooide bal',
+      'Aanval: De aanvaller mag op een zelf gekozen volleybalachtige wijze de bal over het net spelen: bovenhands, tip, smash, onderarms',
+      'De eerste bal wordt gespeeld (bovenhands of onderarms), de tweede bal gevangen en opgespeeld, de derde bal gaat over het net',
+      'Blokken van de eerste bal die over het net komt (serve) mag niet',
+      'Er moet drie keer gespeeld worden (een blokaanraking telt niet mee)',
+      'Het team dat de rally wint, krijgt de service',
+      'De service moet binnen 3 seconden plaatsvinden',
+      'Wisselt de service na een punt van team, wordt er aan de kant die gaat serveren eerst doorgedraaid',
+      'Na drie keer serveren door dezelfde speler moet het team doordraaien'
+    ],
+    scoring: [
+      'De bal in het veld van de tegenstander op de grond valt',
+      'De bal via de tegenstander uit gaat',
+      'Een speler twee keer achter elkaar de bal speelt',
+      'Er minder dan drie keer gespeeld wordt'
     ],
     didacticTips: [
-      'Leer aanloop voor smash',
-      'Focus op timing sprong',
-      'Oefen setup voor aanval',
-      'Introduceer eenvoudige tactieken'
+      'De selfpass verdwijnt uit het spel',
+      'Spelers leren ruimere passes te spelen die vangbaar zijn voor medespelers',
+      'Om de aanval te laten lukken mag de speler met bal rennen naar het net',
+      'De set uit eigen opgooi introduceert de bovenhandse setup'
     ],
     methodicalBuild: {
-      description: 'In Smash Volley komt een derde speler erbij en wordt de serve geïntroduceerd. Het spel bestaat uit pass – set – aanval.',
+      description: 'Pass de bal die over het net komt. De tweede bal wordt gevangen en bovenhands gespeeld vanuit een zelf opgooi (set). De derde bal wordt over het net gespeeld.',
       steps: [
         'Begin met losse technieken: onderhands serveren apart oefenen',
         'Set-oefeningen: vang en bovenhands spelen naar juiste zone',
@@ -334,7 +382,7 @@ export const volleyStarsLevels = [
         'Combineren tot pass – set – aanval patroon',
         'Uitbouwen naar 3-tegen-3 met rotatie'
       ],
-      focus: 'Samenspel in drietallen, pass-set-aanval, eerste tactiek'
+      focus: 'De selfpass verdwijnt uit het spel en spelers leren om ruimere passes te spelen die vangbaar zijn voor de medespelers. Om de aanval te laten lukken mag de speler met bal rennen naar het net. De set uit eigen opgooi introduceert de bovenhandse setup en de mogelijkheid tot een gevarieerde aanvalsbal'
     },
     commonMistakes: [
       {
@@ -413,30 +461,40 @@ export const volleyStarsLevels = [
   },
   {
     id: 'level5-ultimate',
-    name: 'Level 5: Ultimate',
+    name: 'Level 5: Ultimate Volley',
     icon: '🏆',
     teamSize: '3 tegen 3',
-    netHeight: 'Officieel (2.24m)',
-    courtSize: '9x4.5 meter',
-    ageGroup: '12+ jaar',
-    mainGoal: 'Volledig volleybal',
-    keyTechnique: 'Alle volleybaltechnieken',
+    netHeight: '2.00m',
+    fieldDepth: '6.00m (eerste achterlijn badmintonveld)',
+    fieldWidth: '6.00m (maximale breedte badmintonveld)',
+    ballWeight: '210-230 gram',
+    ageGroup: '10-12 jaar (richtlijn)',
+    mainGoal: 'Het spel wordt zonder vangen gespeeld. Drie keer samenspelen levert een bonuspunt op',
+    keyTechnique: 'Alle ballen worden gespeeld met kort contact (bovenhands of onderarms)',
+    entryRequirement: 'Spelers beheersen level 4 waarin de pass in de meerderheid van de gevallen door de midvoor speler aan het net gevangen kan worden zonder daarvoor veel van de startpositie af te moeten wijken',
     rules: [
-      'Geen vangen meer toegestaan',
-      'Alle volleybaltechnieken toegestaan',
-      'Service: bovenhands of onderhands sprong',
-      'Maximaal 3 balcontacten per team',
-      'Volledige rotatie en positiespel',
-      'Bonuspunt bij drie keer samenspelen'
+      'Iedere rally start met een onderhandse service door de speler op de positie rechtsachter ergens in de achterste helft van het speelveld',
+      'Alle ballen worden gespeeld met kort contact (bovenhands of onderarms)',
+      'Het team dat de rally wint, krijgt de service',
+      'De service moet binnen 3 seconden plaatsvinden',
+      'Wisselt de service van team, wordt er aan de kant die gaat serveren eerst doorgedraaid',
+      'Na drie keer serveren door dezelfde speler moet het team doordraaien; de derde service mag bovenhands',
+      'Blokken van de eerste bal die over het net komt (serve) mag niet'
     ],
+    scoring: [
+      'De bal in het veld van de tegenstander op de grond valt',
+      'De bal via de tegenstander uit gaat',
+      'Een team vaker dan drie keer overspeelt om de bal over het net te krijgen (een blokaanraking telt niet mee in aantal keren spelen)'
+    ],
+    bonusScoring: 'In drie keer de bal goed over het net spelen, zonder dat de bal uit gaat, levert direct een bonuspunt op, ongeacht het verdere verloop van de rally',
     didacticTips: [
-      'Focus op teamtactieken',
-      'Leer specialisatie per positie',
-      'Introduceer complexe spelpatronen',
-      'Wedstrijdgericht trainen'
+      'Zonder vangen spelen',
+      'De overgang naar level 5 blijft een grote stap voor kinderen',
+      'Het advies is om daar niet te snel heen te willen',
+      'Dit level stimuleert drie keer spelen met een bonuspunt'
     ],
     methodicalBuild: {
-      description: 'Ultimate Volley is de overgang naar traditioneel volleybal. Je speelt 3-tegen-3 zonder vangen en krijgt bonuspunten voor samenspel.',
+      description: 'Het spel wordt zonder vangen gespeeld. Drie keer samenspelen levert een bonuspunt op.',
       steps: [
         'Start met rally-oefeningen zonder vangen',
         'Volledige rotaties oefenen met positiewissels',
@@ -444,7 +502,7 @@ export const volleyStarsLevels = [
         'Introduceer blok en verdediging bij gevorderde groepen',
         'Beloningssysteem voor drie contacten (bonuspunt)'
       ],
-      focus: 'Traditioneel volleybal, tactiek, communicatie en teamwork'
+      focus: 'Zonder vangen. De overgang naar level 5 blijft een grote stap voor kinderen. Het advies is om daar niet te snel heen te willen. Het is heel leerzaam voor kinderen om zich wat langer te mogen ontwikkelen in het voorgaande level. Dit level stimuleert drie keer spelen met een bonuspunt'
     },
     commonMistakes: [
       {
@@ -527,10 +585,10 @@ export const quizQuestions = {
   'level1-catch': [
     {
       id: 'q1-1',
-      question: 'Hoe lang mag je de bal vasthouden in Level 1?',
-      options: ['1 seconde', '2 seconden', '3 seconden', '5 seconden'],
-      correctAnswer: 2,
-      explanation: 'In Level 1 (Catch) mag je de bal maximaal 3 seconden vasthouden voordat je moet gooien.'
+      question: 'Hoe hoog is het net in Level 1: Catch Volley?',
+      options: ['1.50m', '1.70m', '2.00m', '2.24m'],
+      correctAnswer: 1,
+      explanation: 'In Level 1 (Catch Volley) is het net 1.70 meter hoog.'
     },
     {
       id: 'q1-2',
@@ -544,121 +602,257 @@ export const quizQuestions = {
       question: 'Mag je lopen met de bal in Level 1?',
       options: ['Ja, onbeperkt', 'Ja, maximaal 3 stappen', 'Nee', 'Alleen bij service'],
       correctAnswer: 2,
-      explanation: 'Je mag niet lopen met de bal in Level 1.'
+      explanation: 'Lopen met de bal is niet toegestaan in Level 1.'
     },
     {
       id: 'q1-4',
-      question: 'Wat is de "komkommerschaal" techniek?',
-      options: ['Een serveer techniek', 'Een vanghouding', 'Een gooitechniek', 'Een springtechniek'],
+      question: 'Hoe zwaar is de wedstrijdbal in Level 1?',
+      options: ['150 gram', '170 gram', '210 gram', '230 gram'],
       correctAnswer: 1,
-      explanation: 'De komkommerschaal is de juiste vanghouding: armen iets gebogen, handen naast elkaar, vingers omhoog.'
+      explanation: 'In Level 1 wordt gespeeld met een 170 gram volleybal.'
+    },
+    {
+      id: 'q1-5',
+      question: 'Wanneer mag je bovenhands gooien in Level 1?',
+      options: ['Nooit', 'Altijd', 'Alleen met een stootworp van voor het hoofd', 'Alleen bij service'],
+      correctAnswer: 2,
+      explanation: 'Bovenhands gooien mag, maar alleen met een stootworp van voor het hoofd (geen voetbalinworp).'
     }
   ],
   'level2-bounce': [
     {
       id: 'q2-1',
-      question: 'Wat is de bounce-set techniek?',
+      question: 'Wat is de bounce-set techniek in Level 2?',
       options: [
         'Direct slaan zonder stuit',
-        'Stuit - vang - gooi',
+        'Een tweehandige stuit vlak voor de medespeler',
         'Twee keer laten stuiteren',
         'Alleen bovenhands spelen'
       ],
       correctAnswer: 1,
-      explanation: 'De bounce-set is een techniek waarbij je de bal laat stuiteren, vangt en weer doorgooit.'
+      explanation: 'De bounce-set is een tweehandige stuit vlak voor de medespeler (deze mag niet over het net gespeeld worden).'
     },
     {
       id: 'q2-2',
-      question: 'Hoe hoog is het net in Level 2?',
-      options: ['1.80m', '2.00m', '2.10m', '2.24m'],
-      correctAnswer: 1,
-      explanation: 'In Level 2 (Bounce) is het net 2.00 meter hoog.'
+      question: 'Hoe hoog is het net in Level 2: Bounce Volley?',
+      options: ['1.70m', '2.00m', '2.10m', '2.24m'],
+      correctAnswer: 0,
+      explanation: 'In Level 2 (Bounce Volley) is het net 1.70 meter hoog.'
     },
     {
       id: 'q2-3',
       question: 'Hoe lang mag je de bal vasthouden in Level 2?',
       options: ['1 seconde', '2 seconden', '3 seconden', '4 seconden'],
-      correctAnswer: 1,
-      explanation: 'In Level 2 mag je de bal maximaal 2 seconden vasthouden na de bounce.'
+      correctAnswer: 2,
+      explanation: 'In Level 2 moeten alle ballen na het vangen (binnen 3 seconden) met een bounce-set naar de medespeler gespeeld worden.'
+    },
+    {
+      id: 'q2-4',
+      question: 'Mag je blokken in Level 2?',
+      options: ['Ja, altijd', 'Nee, nooit', 'Alleen de eerste bal', 'Blokken van de eerste bal die over het net komt mag niet'],
+      correctAnswer: 3,
+      explanation: 'Blokken van de eerste bal die over het net komt mag niet in Level 2.'
     }
   ],
   'level3-pass': [
     {
       id: 'q3-1',
-      question: 'Wat mag NIET meer in Level 3?',
-      options: ['Onderhands passen', 'Bovenhands passen', 'Vangen', 'Selfpass'],
-      correctAnswer: 2,
-      explanation: 'In Level 3 (Pass) is vangen niet meer toegestaan, alles moet direct gespeeld worden.'
+      question: 'Hoe hoog is het net in Level 3: Pass Volley?',
+      options: ['1.70m', '2.00m', '2.10m', '2.24m'],
+      correctAnswer: 1,
+      explanation: 'In Level 3 (Pass Volley) is het net 2.00 meter hoog.'
     },
     {
       id: 'q3-2',
-      question: 'Wat is een selfpass?',
+      question: 'Wat gebeurt er als de bal bovenhands gespeeld wordt in Level 3?',
       options: [
-        'Naar jezelf serveren',
-        'De bal twee keer achter elkaar aanraken',
-        'Alleen met jezelf oefenen',
-        'De bal naar een teamgenoot passen'
+        'De bal mag door iedereen gevangen worden',
+        'De medespeler moet de bal vangen',
+        'De bal moet direct teruggespeeld worden',
+        'Het is een fout'
       ],
       correctAnswer: 1,
-      explanation: 'Een selfpass is wanneer je de bal twee keer achter elkaar aanraakt, wat in Level 3 is toegestaan.'
+      explanation: 'Wordt de bal bovenhands gespeeld dan moet de medespeler de bal vangen.'
     },
     {
       id: 'q3-3',
-      question: 'Wat is de juiste "platform-houding"?',
-      options: ['Armen gespreid', 'Armen samen, knieën gestrekt', 'Armen samen, knieën gebogen', 'Een arm omhoog'],
+      question: 'Wat kan er gebeuren na een onderarmse pass in Level 3?',
+      options: ['Alleen medespeler mag vangen', 'Alleen selfpass toegestaan', 'Bal door medespeler gevangen óf zelf gevangen (selfpass)', 'Bal moet direct over het net'],
       correctAnswer: 2,
-      explanation: 'Platform-houding: armen samen, knieën licht gebogen, voeten op schouderbreedte.'
+      explanation: 'Na een onderarmse pass wordt de bal door de medespeler gevangen óf zelf gevangen (selfpass).'
+    },
+    {
+      id: 'q3-4',
+      question: 'Hoeveel keer moet er gespeeld worden tijdens de rally in Level 3?',
+      options: ['1 keer', '2 keer', '3 keer', '4 keer'],
+      correctAnswer: 2,
+      explanation: 'Tijdens de rally moet er drie keer gespeeld worden in Level 3.'
     }
   ],
   'level4-smash': [
     {
       id: 'q4-1',
-      question: 'Hoeveel spelers per team in Level 4?',
+      question: 'Hoeveel spelers per team in Level 4: Smash Volley?',
       options: ['2', '3', '4', '6'],
       correctAnswer: 1,
-      explanation: 'Level 4 (Smash) wordt gespeeld met 3 tegen 3.'
+      explanation: 'Level 4 (Smash Volley) wordt gespeeld met 3 tegen 3.'
     },
     {
       id: 'q4-2',
-      question: 'Wanneer mag je vangen in Level 4?',
-      options: [
-        'Nooit',
-        'Alleen bij eerste balcontact',
-        'Bij alle balcontacten',
-        'Alleen bij service'
-      ],
-      correctAnswer: 1,
-      explanation: 'In Level 4 mag je alleen bij het eerste balcontact vangen.'
+      question: 'Hoe zwaar is de wedstrijdbal in Level 4?',
+      options: ['170 gram', '200 gram', '210-230 gram', '250 gram'],
+      correctAnswer: 2,
+      explanation: 'In Level 4 wordt er met een bal van 210-230 gram gespeeld.'
     },
     {
       id: 'q4-3',
-      question: 'Wat is het standaard aanvalspatroon in Level 4?',
-      options: ['Pass-aanval', 'Set-pass-aanval', 'Pass-set-aanval', 'Service-aanval'],
-      correctAnswer: 2,
-      explanation: 'In Level 4 leren spelers het pass-set-aanval patroon.'
+      question: 'Is de selfpass nog toegestaan in Level 4?',
+      options: ['Ja, altijd', 'Nee, de selfpass is niet meer toegestaan', 'Alleen bij de eerste bal', 'Alleen bij de service'],
+      correctAnswer: 1,
+      explanation: 'In Level 4 is de selfpass niet meer toegestaan. Spelers moeten de bal naar een medespeler passen.'
+    },
+    {
+      id: 'q4-4',
+      question: 'Wie serveert na een gewonnen rally in Level 4?',
+      options: ['Hetzelfde team', 'Het team dat de rally wint', 'Altijd het andere team', 'De aanvaller'],
+      correctAnswer: 1,
+      explanation: 'Het team dat de rally wint, krijgt de service in Level 4.'
+    },
+    {
+      id: 'q4-5',
+      question: 'Wat gebeurt er na drie keer serveren door dezelfde speler?',
+      options: ['Niets', 'Het team moet doordraaien', 'De service gaat naar de tegenstander', 'Een time-out'],
+      correctAnswer: 1,
+      explanation: 'Na drie keer serveren door dezelfde speler moet het team doordraaien.'
     }
   ],
   'level5-ultimate': [
     {
       id: 'q5-1',
-      question: 'Wat is NIET toegestaan in Level 5?',
-      options: ['Smash', 'Blok', 'Vangen', 'Bovenhands serveren'],
-      correctAnswer: 2,
-      explanation: 'In Level 5 (Ultimate) is vangen helemaal niet meer toegestaan.'
+      question: 'Hoe hoog is het net in Level 5: Ultimate Volley?',
+      options: ['1.70m', '2.00m', '2.20m', '2.24m'],
+      correctAnswer: 1,
+      explanation: 'In Level 5 (Ultimate Volley) is het net 2.00 meter hoog.'
     },
     {
       id: 'q5-2',
-      question: 'Hoe hoog is het net in Level 5?',
-      options: ['2.10m', '2.15m', '2.20m', '2.24m'],
-      correctAnswer: 3,
-      explanation: 'In Level 5 wordt gespeeld op officiële nethoogte van 2.24 meter.'
+      question: 'Hoe groot is het veld in Level 5?',
+      options: ['4.50 x 5.20m', '6.00 x 6.00m', '9.00 x 18.00m', '4.50 x 9.00m'],
+      correctAnswer: 1,
+      explanation: 'In Level 5 is de velddiepte 6.00 meter (eerste achterlijn badmintonveld) en veldbreedte 6.00 meter (maximale breedte badmintonveld).'
     },
     {
       id: 'q5-3',
       question: 'Wanneer krijg je een bonuspunt in Level 5?',
-      options: ['Bij elke service', 'Bij een smash', 'Bij drie keer samenspelen', 'Bij een ace'],
+      options: ['Bij elke service', 'Bij een smash', 'In drie keer de bal goed over het net spelen zonder dat de bal uit gaat', 'Bij een ace'],
       correctAnswer: 2,
-      explanation: 'In Ultimate Volley krijg je een bonuspunt als je team drie keer samenspeelt.'
+      explanation: 'In drie keer de bal goed over het net spelen, zonder dat de bal uit gaat, levert direct een bonuspunt op, ongeacht het verdere verloop van de rally.'
+    },
+    {
+      id: 'q5-4',
+      question: 'Hoe worden alle ballen gespeeld in Level 5?',
+      options: ['Met vangen', 'Met kort contact (bovenhands of onderarms)', 'Alleen bovenhands', 'Alleen onderarms'],
+      correctAnswer: 1,
+      explanation: 'Alle ballen worden gespeeld met kort contact (bovenhands of onderarms) in Level 5.'
+    },
+    {
+      id: 'q5-5',
+      question: 'Wanneer mag de derde service bovenhands gespeeld worden?',
+      options: ['Nooit', 'Altijd', 'Na drie keer serveren door dezelfde speler mag de derde service bovenhands', 'Alleen bij de eerste service'],
+      correctAnswer: 2,
+      explanation: 'Na drie keer serveren door dezelfde speler moet het team doordraaien; de derde service mag bovenhands.'
     }
   ]
+}
+
+// Speelregels informatie
+export const playingRules = {
+  general: {
+    title: 'Speelregels',
+    description: 'Naast spelregels zijn er ook speelregels. Deze speelregels hebben als doel om de jonge volleybalspelers te kunnen laten genieten van het spelen van volleybal.',
+    principles: [
+      'Iedereen speelt evenveel',
+      'Spelbegeleiders begeleiden kinderen en schatten in hoe "streng" ze de "technische" regels toepassen',
+      'Kinderen wisselen regelmatig van medespelers in level 1,2 en 3',
+      'Wees positief naar tegenstanders en eigen spelers',
+      'Spelers geven na afloop van de wedstrijd een hand en bedanken elkaar',
+      'Spelers mogen veel zelf ontdekken. De coach begeleidt de spelers waar nodig',
+      'Het spel is van de kinderen. Enthousiaste ouders coachen niet vanaf de tribune',
+      'Coaches en spelbegeleiders stimuleren snelheid in het spel',
+      'Spelers spelen in de eerste drie levels zo veel mogelijk op beide posities (wissel links en rechts af)'
+    ],
+    volleyballLikeTechniques: {
+      title: 'In level 1,2 en 3 streven we naar volleybalachtig gooien en vangen',
+      techniques: [
+        {
+          name: 'Vang-stootbeweging',
+          description: 'Een bal die bovenhands met twee handen van voor of boven het hoofd wordt weggeduwd'
+        },
+        {
+          name: 'Vang-gooi beweging', 
+          description: 'Een onderhands gevangen bal die vrijwel direct met gestrekte armen opgegooid wordt'
+        }
+      ]
+    }
+  },
+  methodology: {
+    title: 'Methodische toelichting',
+    generalGoal: 'Het doel van de eerste drie levels is het ontwikkelen van basale vaardigheden en adaptief vermogen, zoals goede verplaatsing, actiebereidheid en omgaan met variatie.',
+    coreChallenge: 'Spelers leren dit binnen de kernuitdaging van volleybal: de bal op de grond in het veld van de tegenstander plaatsen en het voorkomen ervan aan eigen zijde als spannend spel.',
+    approach: 'Spelers ervaren bij voorkeur veel betrokkenheid tijdens het spel, waarbij ze leren via een speler- en spelgerichte benadering.',
+    development: 'Spelers ontwikkelen zich van veelzijdig naar speelzijdig in deze leeftijd. Naast het ontwikkelen van vaardigheden, neemt de complexiteit van samenwerking toe, van eenvoudige afstemming naar complexere handelingen qua timing en richting.'
+  },
+  tournamentFormat: {
+    title: 'Toernooivormen als speelconcept',
+    description: 'Volley Stars wordt altijd in toernooivorm gespeeld.',
+    advantages: [
+      'Club- én teamgevoel bij de jongste kinderen in level 1 t/m 3',
+      'Teamgevoel bij de wat oudere kinderen vanaf level 4',
+      'Mogelijkheid voor clubs om teams flexibel op eigen niveau in te laten schrijven per toernooi',
+      'Een aantrekkelijk dag(deel)programma',
+      'Ontwikkeling centraal',
+      'Op termijn kunnen clubs meer rekening houden met kinderen en ouders die meer flexibiliteit willen'
+    ],
+    teamStructure: {
+      levels123: 'Bij voorkeur hanteren clubs teamstructuren van 4-6 spelers voor trainen en naar wedstrijden reizen. De Nevobo adviseert om niet in vaste tweetallen te spelen maar juist binnen een trainingsgroep/team veel door te wisselen in samenstelling.',
+      levels45: 'Vanaf level 4 is er wel sprake van vaste teams (van minimaal 3 spelers).'
+    }
+  },
+  fieldVariations: {
+    title: 'Veldvariaties',
+    generalRule: 'De aangegeven velddiepte is een vast gegeven. De veldbreedte kan variëren per zaal.',
+    allowedWidths: {
+      level1: 'Tussen 4.50 en 6.00 meter, afhankelijk van het instapniveau',
+      level2: 'Tussen 4.50 en 6.00 meter',
+      level3: 'Tussen 4.50 en 6.00 meter',
+      level4: 'Tussen 5.20 en 6.00 meter',
+      level5: 'Tussen 6.00 en 6.10 meter'
+    },
+    recommendations: {
+      levels123: 'Voor level 1, 2 en 3 adviseert de Nevobo om eerder op de binnenste lijnen van een badmintonveld te spelen (5.20m) of op de genoemde 4.50 meter.',
+      minimumWidth: 'In de eerste 3 levels is 4.50 meter als minimale breedte toegestaan. Smaller mag niet, omdat uit testen blijkt dat er dan een grote kans is op te veel dominantie door één speler.'
+    }
+  },
+  ballSpecifications: {
+    title: 'Wedstrijdbal',
+    levels123: {
+      weight: '170 gram',
+      advantages: 'Voor de eerste drie levels betekent dit een iets tragere balvlucht. Dat is voordelig voor het leren vangen. Daarnaast is het een prettige bal om mee te leren passen.'
+    },
+    levels45: {
+      weight: '210-230 gram',
+      advantages: 'Vanaf level 4 wordt de bovenhandse set dominanter. Deze uitvoering is gebaat bij iets meer gewicht in de bal. Kinderen kunnen de bal beter ontvangen waardoor de bovenhandse bal soepeler gespeeld kan worden.'
+    }
+  },
+  bounceSetExplanation: {
+    title: 'Bounce-set',
+    description: 'De bounce-set is een manier om de bal op te zetten via een stuit op de grond. Het helpt jonge spelers om een goede aanvallende actie te kunnen maken.',
+    advantages: [
+      'Het geeft de spelers meer tijd om goed onder de bal te komen, zonder dat de set van heel hoog moet komen en daardoor onnauwkeurig en moeilijk speelbaar kan worden',
+      'Deze tijd en hoogte maakt dat de spelers makkelijker en gevarieerder de bal over het net kunnen spelen',
+      'Het "dwingt" de aanvallers op natuurlijke wijze om ruimte te houden/maken achter de bal en daarna naar voren de actie in te zetten'
+    ],
+    execution: 'De setter mag tot voor de medespeler rennen en dan de bounce-set geven. Het makkelijkste is als dat vlak voor de aanvaller gebeurt.',
+    rule: 'De spelers mogen niet samen naar het net rennen na het vangen van de bal. De speler met de bal in de handen (setter) mag wel met de bal naar voren rennen.'
+  }
 }

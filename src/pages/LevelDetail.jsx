@@ -134,7 +134,7 @@ function LevelDetail() {
           </button>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-4 mb-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <div className="bg-gray-50 rounded-lg p-3">
             <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
               <Users size={16} />
@@ -154,16 +154,26 @@ function LevelDetail() {
               <Target size={16} />
               <span className="font-semibold">Veld</span>
             </div>
-            <p className="text-gray-800">{level.courtSize}</p>
+            <p className="text-gray-800">{level.fieldDepth} × {level.fieldWidth}</p>
           </div>
           <div className="bg-gray-50 rounded-lg p-3">
             <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
               <CheckCircle size={16} />
-              <span className="font-semibold">Focus</span>
+              <span className="font-semibold">Bal</span>
             </div>
-            <p className="text-gray-800">{level.keyTechnique}</p>
+            <p className="text-gray-800">{level.ballWeight}</p>
           </div>
         </div>
+        
+        {level.entryRequirement && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+            <h3 className="font-semibold text-blue-800 mb-2 flex items-center gap-2">
+              <HelpCircle size={16} />
+              Entreevoorwaarde
+            </h3>
+            <p className="text-blue-700 text-sm">{level.entryRequirement}</p>
+          </div>
+        )}
 
         <div className="border-b mb-6">
           <div className="flex gap-4 overflow-x-auto">
@@ -190,6 +200,14 @@ function LevelDetail() {
         <div className="min-h-[300px]">
           {activeTab === 'overview' && (
             <div className="space-y-6">
+              <div className="bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-lg p-4 mb-6">
+                <h3 className="font-semibold text-orange-800 mb-2 flex items-center gap-2">
+                  <Zap size={16} />
+                  Kerntechniek
+                </h3>
+                <p className="text-orange-700">{level.keyTechnique}</p>
+              </div>
+              
               <CollapsibleSection
                 id="rules"
                 title="Spelregels & Hoofddoel"
@@ -212,6 +230,25 @@ function LevelDetail() {
                       ))}
                     </ul>
                   </div>
+                  {level.scoring && (
+                    <div>
+                      <h4 className="font-semibold mb-3 text-orange-700">Een punt wordt gescoord als:</h4>
+                      <ul className="space-y-2">
+                        {level.scoring.map((score, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <Target size={20} className="text-orange-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-700">{score}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {level.bonusScoring && (
+                    <div className="bg-yellow-50 border border-yellow-200 p-3 rounded-lg">
+                      <h4 className="font-semibold mb-2 text-yellow-800">🌟 Bonuspunt</h4>
+                      <p className="text-yellow-700 text-sm">{level.bonusScoring}</p>
+                    </div>
+                  )}
                 </div>
               </CollapsibleSection>
 

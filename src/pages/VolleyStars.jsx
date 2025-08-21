@@ -79,12 +79,27 @@ function VolleyStars() {
         ))}
       </div>
 
-      <div className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg p-6 text-white">
-        <h3 className="text-lg font-semibold mb-2">🎯 Didactische tip</h3>
-        <p>
-          Start altijd met een level dat net onder het huidige niveau van de groep ligt. 
-          Dit zorgt voor succeservaringen en bouwt vertrouwen op voordat je naar een hoger level gaat.
-        </p>
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg p-6 text-white">
+          <h3 className="text-lg font-semibold mb-2">🎯 Didactische tip</h3>
+          <p>
+            Start altijd met een level dat net onder het huidige niveau van de groep ligt. 
+            Dit zorgt voor succeservaringen en bouwt vertrouwen op voordat je naar een hoger level gaat.
+          </p>
+        </div>
+        
+        <Link 
+          to="/volley-stars/info"
+          className="bg-gradient-to-r from-green-500 to-teal-500 rounded-lg p-6 text-white hover:shadow-lg transition-all group"
+        >
+          <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
+            📚 Complete Gids
+            <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+          </h3>
+          <p>
+            Lees alles over speelregels, methodische toelichting, toernooivormen en meer in de uitgebreide Volley Stars gids.
+          </p>
+        </Link>
       </div>
     </div>
   )
