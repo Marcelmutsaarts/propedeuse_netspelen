@@ -8,6 +8,7 @@ const useStore = create(
       notes: {},
       quizScores: {},
       videoUrls: {},
+      additionalVideos: {},
       
       addFavorite: (itemId) => set((state) => ({
         favorites: [...new Set([...state.favorites, itemId])]
@@ -47,11 +48,21 @@ const useStore = create(
       
       getVideoUrl: (levelId) => get().videoUrls[levelId] || '',
       
+      setAdditionalVideos: (levelId, videos) => set((state) => ({
+        additionalVideos: {
+          ...state.additionalVideos,
+          [levelId]: videos
+        }
+      })),
+      
+      getAdditionalVideos: (levelId) => get().additionalVideos[levelId] || [],
+      
       clearAllData: () => set({
         favorites: [],
         notes: {},
         quizScores: {},
-        videoUrls: {}
+        videoUrls: {},
+        additionalVideos: {}
       })
     }),
     {
@@ -60,7 +71,8 @@ const useStore = create(
         favorites: state.favorites,
         notes: state.notes,
         quizScores: state.quizScores,
-        videoUrls: state.videoUrls
+        videoUrls: state.videoUrls,
+        additionalVideos: state.additionalVideos
       })
     }
   )

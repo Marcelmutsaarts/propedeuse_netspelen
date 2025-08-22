@@ -12,6 +12,8 @@ export const volleyStarsLevels = [
     mainGoal: 'Gooien en vangen',
     keyTechnique: 'Onderhandse opgooi over het net',
     entryRequirement: 'De spelers kunnen een bal die over het net komt vangen en zijn in staat om die over een 1.70 meter hoog net terug te gooien',
+    defaultVideo: 'https://youtu.be/yQLZdxa8I18',
+    additionalVideos: [],
     rules: [
       'Iedere rally start met een onderhandse opgooi over het net vanuit het midden van de eigen helft',
       'Alle ballen moeten met twee handen worden teruggegooid',
@@ -123,6 +125,8 @@ export const volleyStarsLevels = [
     mainGoal: 'Samenwerken in aanval, meer variatie in verdediging',
     keyTechnique: 'Bounce-set (tweehandige stuit vlak voor medespeler)',
     entryRequirement: 'Spelers beheersen level 1 effectief en stabiel en hebben daarnaast geoefend met het geven van een bounce-set die ze over een net van 1.70m hoog kunnen spelen',
+    defaultVideo: 'https://youtu.be/lRlsJnKP2kY',
+    additionalVideos: [],
     rules: [
       'Iedere rally start met een bounce-set en aanval vanuit het midden van de eigen helft',
       'Vangen: De speler die de bal vangt, mag rennen tot vlak voor de medespeler om een bounce-set voor de voeten te geven',
@@ -233,6 +237,8 @@ export const volleyStarsLevels = [
     mainGoal: 'Pass de bal naar een medespeler die de bal vangt of vang je eigen pass (selfpass)',
     keyTechnique: 'Onderarmse pass en selfpass',
     entryRequirement: 'Spelers beheersen level 2 effectief en zijn daarnaast in staat om een bal die over het net komt onderarms te spelen als selfpass of pass naar een medespeler. Kinderen hebben geoefend met voor de medespeler opgooien',
+    defaultVideo: 'https://youtu.be/cu01Vos20wg',
+    additionalVideos: [],
     rules: [
       'Iedere rally start met het opgooien van de bal voor de medespeler die de bal over het net speelt vanuit het midden van de eigen helft',
       'Pass: De bal die over het net komt moet direct gespeeld worden. Na een onderarmse pass wordt de bal door de medespeler gevangen óf zelf gevangen (selfpass). Wordt de bal bovenhands gespeeld dan moet de medespeler de bal vangen',
@@ -348,6 +354,8 @@ export const volleyStarsLevels = [
     mainGoal: 'Pass de bal die over het net komt. De tweede bal wordt gevangen en bovenhands gespeeld vanuit een zelf opgooi (set)',
     keyTechnique: 'Pass-set-aanval, bovenhandse set uit eigen opgooi',
     entryRequirement: 'Spelers beheersen level 3 effectief waarbij er steeds minder de selfpass nodig is voor het redden van een bal',
+    defaultVideo: 'https://youtu.be/NDZ0LbIOg6M',
+    additionalVideos: [],
     rules: [
       'Iedere rally start met een onderhandse service door de speler op positie rechtsachter ergens in de achterste helft van het speelveld',
       'Pass: De bal spelen (bovenhands of onderarms) naar een medespeler. De selfpass is niet meer toegestaan',
@@ -472,6 +480,8 @@ export const volleyStarsLevels = [
     mainGoal: 'Het spel wordt zonder vangen gespeeld. Drie keer samenspelen levert een bonuspunt op',
     keyTechnique: 'Alle ballen worden gespeeld met kort contact (bovenhands of onderarms)',
     entryRequirement: 'Spelers beheersen level 4 waarin de pass in de meerderheid van de gevallen door de midvoor speler aan het net gevangen kan worden zonder daarvoor veel van de startpositie af te moeten wijken',
+    defaultVideo: 'https://youtu.be/4r-LpGxRCO0',
+    additionalVideos: [],
     rules: [
       'Iedere rally start met een onderhandse service door de speler op de positie rechtsachter ergens in de achterste helft van het speelveld',
       'Alle ballen worden gespeeld met kort contact (bovenhands of onderarms)',

@@ -22,15 +22,18 @@ function LevelDetail() {
     getNote, 
     saveNote,
     getVideoUrl,
-    setVideoUrl
+    setVideoUrl,
+    getAdditionalVideos,
+    setAdditionalVideos: saveAdditionalVideos
   } = useStore()
   
   const [activeTab, setActiveTab] = useState('overview')
   const [note, setNote] = useState(getNote(levelId) || '')
   const [showNoteSaved, setShowNoteSaved] = useState(false)
-  const [videoInput, setVideoInput] = useState(getVideoUrl(levelId) || '')
+  const [videoInput, setVideoInput] = useState('')
   const [videoSaved, setVideoSaved] = useState(false)
   const [expandedSections, setExpandedSections] = useState({})
+  const [additionalVideos, setAdditionalVideos] = useState(getAdditionalVideos(levelId))
 
   if (!level) {
     return (
@@ -60,10 +63,21 @@ function LevelDetail() {
     setTimeout(() => setShowNoteSaved(false), 2000)
   }
   
-  const handleSaveVideo = () => {
-    setVideoUrl(levelId, videoInput)
-    setVideoSaved(true)
-    setTimeout(() => setVideoSaved(false), 2000)
+  const handleAddVideo = () => {
+    if (videoInput.trim()) {
+      const newVideos = [...additionalVideos, videoInput]
+      setAdditionalVideos(newVideos)
+      saveAdditionalVideos(levelId, newVideos)
+      setVideoInput('')
+      setVideoSaved(true)
+      setTimeout(() => setVideoSaved(false), 2000)
+    }
+  }
+
+  const handleRemoveVideo = (index) => {
+    const newVideos = additionalVideos.filter((_, i) => i !== index)
+    setAdditionalVideos(newVideos)
+    saveAdditionalVideos(levelId, newVideos)
   }
 
   const toggleSection = (sectionId) => {
@@ -334,6 +348,33 @@ function LevelDetail() {
 
           {activeTab === 'exercises' && (
             <div className="space-y-4">
+              {/* Volleywijzer link sectie */}
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-lg p-6 mb-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-100 rounded-full p-3">
+                    <ExternalLink size={24} className="text-blue-600" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-blue-800 mb-2">Nog meer oefeningen nodig?</h3>
+                    <p className="text-blue-700 mb-3">
+                      Ontdek een uitgebreide collectie volleybaloefeningen op Volleywijzer. 
+                      Van techniektraining tot tactische oefeningen, voor alle niveaus en leeftijden.
+                    </p>
+                    <a
+                      href="https://www.volleywijzer.nl/oefeningen"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    >
+                      <Dumbbell size={18} />
+                      Bekijk alle oefeningen op Volleywijzer
+                      <ExternalLink size={16} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bestaande oefeningen */}
               {level.exercises.map((exercise, index) => (
                 <CollapsibleSection
                   key={index}
@@ -396,42 +437,18 @@ function LevelDetail() {
           )}
 
           {activeTab === 'video' && (
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  YouTube Video URL
-                </label>
-                <div className="flex gap-2">
-                  <input
-                    type="url"
-                    value={videoInput}
-                    onChange={(e) => setVideoInput(e.target.value)}
-                    className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                    placeholder="Plak hier een YouTube URL (bijv. https://www.youtube.com/watch?v=...)"
-                  />
-                  <button
-                    onClick={handleSaveVideo}
-                    className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors flex items-center gap-2"
-                  >
-                    <Save size={18} />
-                    Opslaan
-                  </button>
-                </div>
-                {videoSaved && (
-                  <p className="text-green-600 text-sm mt-2">✓ Video URL opgeslagen</p>
-                )}
-                <p className="text-xs text-gray-500 mt-1">
-                  Ondersteunt YouTube URLs in verschillende formaten (youtube.com/watch, youtu.be, youtube.com/embed)
-                </p>
-              </div>
-              
-              {getVideoUrl(levelId) && (
-                <div className="mt-6">
-                  <h4 className="font-semibold mb-3 text-gray-700">Video voor {level.name}</h4>
-                  <YouTubeEmbed url={getVideoUrl(levelId)} title={`Video voor ${level.name}`} />
+            <div className="space-y-6">
+              {/* Standaard video */}
+              {level.defaultVideo && (
+                <div>
+                  <h4 className="font-semibold mb-3 text-gray-700 flex items-center gap-2">
+                    <Star size={18} className="text-yellow-500" />
+                    Standaard instructievideo voor {level.name}
+                  </h4>
+                  <YouTubeEmbed url={level.defaultVideo} title={`Standaard video voor ${level.name}`} />
                   <div className="mt-2">
                     <a
-                      href={getVideoUrl(levelId)}
+                      href={level.defaultVideo}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-blue-600 hover:text-blue-800 flex items-center gap-1"
@@ -442,16 +459,67 @@ function LevelDetail() {
                   </div>
                 </div>
               )}
-              
-              {!getVideoUrl(levelId) && (
-                <div className="bg-gray-50 rounded-lg p-8 text-center mt-6">
-                  <Play size={48} className="text-gray-400 mx-auto mb-3" />
-                  <p className="text-gray-600">Nog geen video toegevoegd voor dit level</p>
-                  <p className="text-sm text-gray-500 mt-2">
-                    Voeg een YouTube URL toe om een video te bekijken
-                  </p>
+
+              {/* Extra video's */}
+              {additionalVideos.length > 0 && (
+                <div>
+                  <h4 className="font-semibold mb-3 text-gray-700">Extra video's</h4>
+                  <div className="space-y-4">
+                    {additionalVideos.map((videoUrl, index) => (
+                      <div key={index} className="relative">
+                        <YouTubeEmbed url={videoUrl} title={`Extra video ${index + 1}`} />
+                        <div className="mt-2 flex items-center justify-between">
+                          <a
+                            href={videoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                          >
+                            <ExternalLink size={14} />
+                            Video openen in YouTube
+                          </a>
+                          <button
+                            onClick={() => handleRemoveVideo(index)}
+                            className="text-sm text-red-600 hover:text-red-800 flex items-center gap-1"
+                          >
+                            <AlertCircle size={14} />
+                            Verwijderen
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
+
+              {/* Video toevoegen */}
+              <div className="border-t pt-6">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Extra YouTube video toevoegen
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="url"
+                    value={videoInput}
+                    onChange={(e) => setVideoInput(e.target.value)}
+                    className="flex-1 p-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    placeholder="Plak hier een YouTube URL (bijv. https://www.youtube.com/watch?v=...)"
+                  />
+                  <button
+                    onClick={handleAddVideo}
+                    className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors flex items-center gap-2"
+                  >
+                    <Save size={18} />
+                    Toevoegen
+                  </button>
+                </div>
+                {videoSaved && (
+                  <p className="text-green-600 text-sm mt-2">✓ Video toegevoegd</p>
+                )}
+                <p className="text-xs text-gray-500 mt-1">
+                  Ondersteunt YouTube URLs in verschillende formaten (youtube.com/watch, youtu.be, youtube.com/embed)
+                </p>
+              </div>
             </div>
           )}
 
